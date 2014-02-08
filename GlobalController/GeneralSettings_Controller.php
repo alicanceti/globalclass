@@ -10,6 +10,12 @@ class GeneralSettings_Controller {
         $this->general_settings_model = $general_settings_model;
     }
 
+    /*
+     * Veritabanına genel ayarlar sekmesinden yapılmış son kayıtları çeker.
+     * Burada ki yaklaşım diğer yerlerinden farksızdır.
+     * GeneralSettings_Model dosyamızda ki diziden yönetilmeye başlanan tüm ayarlar burada
+     * Bir dizi değişkene tekrar atılır ve GeneralSettings_View dosyamızdan bu dizi değer okunmak üzere gönderilir.
+     */
     public function intent_general_settings(){
         $get_settings   = get_option( GENERAL_SETTINGS_GC );
         if( !empty( $get_settings ) && $get_settings ) {
@@ -24,6 +30,10 @@ class GeneralSettings_Controller {
         return null;
     }
 
+    /*
+     * Admin panelden yapılan tüm kayıtları çeker,
+     * Sql injection ataklarına karşı korur GeneralSettings_Model dosyamıza kaydedilmek üzere gönderilir.
+     */
     public function register_general_function(){
 
         if( isset( $_POST[self::GS_NONCE_NAME] ) ) {

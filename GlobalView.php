@@ -15,11 +15,11 @@ class GlobalView {
         $this->form_ui          = $form_ui;
         add_action("admin_menu",array(&$this,"global_theme_settings"));
         add_action("after_setup_theme",array(&$this,"advanced_settings"));
-        add_action("init",array(&$this,"add_global_style"));
+        add_action("admin_print_styles",array(&$this,"add_global_style"));
     }
 
     public function add_global_style(){
-        wp_register_style("add-global-style",get_bloginfo("template_url") . "/globalclass/globalclass.css");
+        wp_register_style("add-global-style",plugins_url("globalclass.css",__FILE__));
         wp_enqueue_style("add-global-style");
     }
 
