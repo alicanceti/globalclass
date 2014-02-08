@@ -2,6 +2,9 @@
 include_once(__DIR__ . "/GlobalModel.php");
 include_once(__DIR__ . "/GlobalController.php");
 include_once(__DIR__ . "/FormUi.php");
+include_once(__DIR__ . "/FormUi.php");
+include_once(__DIR__ . "/GlobalView/GeneralSettings.php");
+
 
 class GlobalView {
     private $globalcontroller,$form_ui,$size_array,$widgets_array,$menu_array;
@@ -140,7 +143,7 @@ class GlobalView {
         $get_post_val       =   $this->globalcontroller->forms_save_settings();
         switch($tab_page) {
             case("homepage"):
-                $this->form_ui->HomePage($get_post_val);
+                general_settings_ui();
                 break;
             case("social"):
                 $this->form_ui->SocialPage($get_post_val);

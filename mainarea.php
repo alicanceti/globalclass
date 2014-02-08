@@ -17,6 +17,7 @@
 define("SOCIAL_THEME_SETTINGS","social_theme_settings");
 define("GOOGLE_ANALYTICS_CODE","google_analytics_code");
 define("HOME_PAGE_SETTINGS","home_page_settings");
+define( "GLOBAL_CLASS_PATH",dirname( __FILE__ ) );
 
 include_once(__DIR__ . "/GlobalView.php");
 $global_model       = new GlobalModel();
