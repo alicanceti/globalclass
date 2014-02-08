@@ -13,6 +13,7 @@ $general_settings_cont      = new GeneralSettings_Controller( $general_settings_
 <?php function general_settings_ui(){
     global $general_settings_cont;
     $gs_set_defaults     = GeneralSettings_Model::$general_settings_defaults;
+    $general_settings_cont->register_general_function();
     ?>
     <form id="main_page_settings" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
 
@@ -22,6 +23,7 @@ $general_settings_cont      = new GeneralSettings_Controller( $general_settings_
                 <input type="text" name="<?php echo $gs_key; ?>" id="<?php echo $gs_key; ?>" value="<?php echo $gs_val; ?>" />
             </fieldset>
         <?php } ?>
-
+        <?php wp_nonce_field(GeneralSettings_Controller::GS_NONCE_ACTION,GeneralSettings_Controller::GS_NONCE_NAME);  ?>
+        <input type="submit" value="Ayarları Kaydet" />
     </form>
 <?php } ?>
