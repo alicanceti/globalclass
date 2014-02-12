@@ -82,3 +82,20 @@
 
 .content_attribute li span {
   margin: 0 5px; }
+
+#main_page_settings {
+  width: 640px;
+  float: left; }
+  #main_page_settings fieldset {
+    width: 100%;
+    float: left;
+    margin: 1% 0; }
+  #main_page_settings label {
+    width: 40%;
+    float: left;
+    padding: 1% 0; }
+  #main_page_settings .gs_input_class {
+    width: 60%;
+    float: right;
+    padding: 1%;
+    margin: 0; }
