@@ -14,7 +14,7 @@ class GeneralSettings_Model {
         "customer_telephone_number_one"     => "Telefon Numarası 1",
         "customer_telephone_number_two"     => "Telefon Numarası 2",
         "customer_telephone_number_thr"     => "Telefon Numarası 3",
-        "customer_address"                  => "Müşteri Adresi",
+        "customer_address"                  => "Müşteri Adresi"
     );
 
     /*
@@ -22,7 +22,7 @@ class GeneralSettings_Model {
      * Eğer forma yeni alanlar eklenmek $general_settings_defaults dizisine yeni alan eklendikten sonra,
      * Versiyon numarası yükseltilmelidir.
      */
-    private $gs_version_number = "1.3";
+    private $gs_version_number = "1.0";
 
     function __construct() {
 

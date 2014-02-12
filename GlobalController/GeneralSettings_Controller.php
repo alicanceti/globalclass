@@ -18,7 +18,7 @@ class GeneralSettings_Controller {
      */
     public function intent_general_settings(){
         $get_settings   = get_option( GENERAL_SETTINGS_GC );
-        if( !empty( $get_settings ) && $get_settings ) {
+        if( !empty( $get_settings ) ) {
             $gs_settings_df     = array();
 
             foreach( GeneralSettings_Model::$general_settings_defaults as $key => $val ) {

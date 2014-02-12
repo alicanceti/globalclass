@@ -30,7 +30,9 @@ class FormUi {
         "pinterest"     => "Pinterest Sayfa Linki"
     );
 
-    public function  SocialPage($social_array){ ?>
+    public function  SocialPage($social_array){
+        print_r( $social_array );
+        ?>
         <p><strong>Sayfada çalıştırmak için social_buttons() fonksiyonunu ekleyin.</strong></p>
         <form id="main_page_settings" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
 

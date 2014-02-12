@@ -2,8 +2,9 @@
 include_once(__DIR__ . "/GlobalModel.php");
 include_once(__DIR__ . "/GlobalController.php");
 include_once(__DIR__ . "/FormUi.php");
-include_once(__DIR__ . "/FormUi.php");
+
 include_once(__DIR__ . "/GlobalView/GeneralSettings.php");
+include_once(__DIR__ . "/GlobalView/SocialButtons.php");
 
 
 class GlobalView {
@@ -146,7 +147,7 @@ class GlobalView {
                 general_settings_ui();
                 break;
             case("social"):
-                $this->form_ui->SocialPage($get_post_val);
+                social_settings_ui();
                 break;
             case("footer"):
                 break;

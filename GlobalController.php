@@ -17,7 +17,7 @@ class GlobalController implements ViewCount {
         $tab_page = (isset($_GET["tab"])) ? $_GET["tab"]  : "homepage";
         switch($tab_page){
             case "homepage":
-                return $this->home_page_save();
+//                return $this->home_page_save();
                 break;
             case "social":
                 return $this->social_page_save();
