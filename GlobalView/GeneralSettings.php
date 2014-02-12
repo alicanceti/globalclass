@@ -20,7 +20,7 @@ $general_settings_cont      = new GeneralSettings_Controller( $general_settings_
         <?php foreach( $general_settings_cont->intent_general_settings() as $gs_key => $gs_val ) { ?>
             <fieldset>
                 <label for="<?php echo $gs_key; ?>"><?php echo $gs_set_defaults[$gs_key] ?></label>
-                <input type="text" name="<?php echo $gs_key; ?>" id="<?php echo $gs_key; ?>" value="<?php echo stripslashes($gs_val); ?>" class="gs_input_class" />
+                <input type="text" name="<?php echo $gs_key; ?>" id="<?php echo $gs_key; ?>" value="<?php echo $gs_val; ?>" />
             </fieldset>
         <?php } ?>
         <?php wp_nonce_field(GeneralSettings_Controller::GS_NONCE_ACTION,GeneralSettings_Controller::GS_NONCE_NAME);  ?>
