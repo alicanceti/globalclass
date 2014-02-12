@@ -15,7 +15,7 @@ class GlobalView {
         $this->form_ui          = $form_ui;
         add_action("admin_menu",array(&$this,"global_theme_settings"));
         add_action("after_setup_theme",array(&$this,"advanced_settings"));
-        add_action("admin_print_styles",array(&$this,"add_global_style"));
+        add_action("init",array(&$this,"add_global_style"));
     }
 
     public function add_global_style(){
@@ -164,10 +164,9 @@ class GlobalView {
 
     /*
      * Siteye Eklenen Sosyal Ağların butonlarını ekler.
-     * TODO bu kısımın css ayarlarını panelden yapılacak hale getirmek iyi olacaktır diye düşünüyorum.
      */
     public function social_button_settings(){
-        $get_social_buttons     = get_option(SOCIAL_THEME_SETTINGS);
+        $get_social_buttons     = get_option( SOCIAL_THEME_SETTINGS );
         if(!empty($get_social_buttons)):
             echo "<ul class='ul-table social_links'>";
             foreach($get_social_buttons as $id => $link) :

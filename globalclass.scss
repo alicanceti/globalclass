@@ -1,3 +1,11 @@
+@mixin trainsition(){
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
 .social_links {
   float: right !important;
   margin: 4px 0; }
@@ -12,11 +20,8 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 70% 70%;
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  transition: all 500ms ease; }
+  @include trainsition();
+  }
 .social_links li a#facebook {
   background-image: url(img/white/facebook.png); }
 .social_links li a#facebook:hover {
@@ -65,4 +70,25 @@
 }
 .content_attribute li span {
   margin: 0 5px;
+}
+#main_page_settings {
+  width: 640px;
+  float: left;
+
+  fieldset {
+    width: 100%;
+    float: left;
+    margin: 1% 0;
+  }
+  label {
+    width: 40%;
+    float: left;
+    padding: 1% 0;
+  }
+  .gs_input_class {
+    width: 60%;
+    float: right;
+    padding: 1%;
+    margin: 0;
+  }
 }
