@@ -96,14 +96,4 @@ function blogs_view_count(){
     return $global_controller->get_view_count($post->ID);
 }
 
-
-/*
- * Google Analytics Code ve Web Master Araçları Kodlarının Ototmaitk olarak yerleştirilmesi için kullanılır.
- */
-add_action("wp_head","ms_google_analytics_code");
-function ms_google_analytics_code(){
-    $get_analytics_code     = get_option(GOOGLE_ANALYTICS_CODE);
-    if(!empty($get_analytics_code)) echo stripslashes($get_analytics_code);
-}
-
 ?>

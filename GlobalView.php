@@ -5,6 +5,7 @@ include_once(__DIR__ . "/FormUi.php");
 
 include_once(__DIR__ . "/GlobalView/GeneralSettings.php");
 include_once(__DIR__ . "/GlobalView/SocialButtons.php");
+include_once(__DIR__ . "/GlobalView/WebMasterTools.php");
 
 
 class GlobalView {
@@ -121,11 +122,10 @@ class GlobalView {
      */
     private function theme_settings_tab_menu( $current ) {
         $tabs = array(
-            'homepage'              => 'Üst Kısım Ayarları',
+            'homepage'              => 'Genel Site Ayarları',
             'social'                => 'Sosyal Medya Ayarları',
-            'footer'                => 'Footer Ayarları',
-            "googleanalytics"       => "Google Analytics",
-            "webmastersettings"     => "Google Web Master Code"
+            'img_settings'          => 'Logo ve Favicon',
+            "seo_tools"             => "Seo Araçları"
         );
         echo '<div id="icon-themes" class="icon32"><br></div>';
         echo '<h2 class="nav-tab-wrapper">';
@@ -140,8 +140,6 @@ class GlobalView {
         $tab_page = (isset($_GET["tab"])) ? $_GET["tab"]  : "homepage";
         $this->theme_settings_tab_menu($tab_page);
 
-        //Gelen post değerlerinin kontrolünü yapıp db ye kaydını yapılmasını sağlar.
-        $get_post_val       =   $this->globalcontroller->forms_save_settings();
         switch($tab_page) {
             case("homepage"):
                 general_settings_ui();
@@ -149,12 +147,10 @@ class GlobalView {
             case("social"):
                 social_settings_ui();
                 break;
-            case("footer"):
+            case("img_settings"):
                 break;
-            case("googleanalytics"):
-                $this->form_ui->GoogleAnalytics($get_post_val);
-                break;
-            case("webmastersettings"):
+            case("seo_tools"):
+                wm_tools_func();
                 break;
             default:
                 break;

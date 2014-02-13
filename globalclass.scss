@@ -72,7 +72,8 @@
   margin: 0 5px;
 }
 #main_page_settings {
-  width: 640px;
+  width: 51%;
+  min-width: 640px;
   float: left;
 
   fieldset {
@@ -90,5 +91,12 @@
     float: right;
     padding: 1%;
     margin: 0;
+  }
+  .gs_textarea_class {
+    width: 60%;
+    float: right;
+    padding: 1%;
+    margin: 0;
+    height: 200px;
   }
 }
