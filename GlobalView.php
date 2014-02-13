@@ -3,11 +3,6 @@ include_once(__DIR__ . "/GlobalModel.php");
 include_once(__DIR__ . "/GlobalController.php");
 include_once(__DIR__ . "/FormUi.php");
 
-include_once(__DIR__ . "/GlobalView/GeneralSettings.php");
-include_once(__DIR__ . "/GlobalView/SocialButtons.php");
-include_once(__DIR__ . "/GlobalView/WebMasterTools.php");
-
-
 class GlobalView {
     private $globalcontroller,$form_ui,$size_array,$widgets_array,$menu_array;
 
@@ -21,7 +16,7 @@ class GlobalView {
     }
 
     public function add_global_style(){
-        wp_register_style("add-global-style",plugins_url("globalclass.css",__FILE__));
+        wp_register_style("add-global-style",get_bloginfo("template_url") . "/globalclass/globalclass.css");
         wp_enqueue_style("add-global-style");
     }
 
@@ -122,10 +117,11 @@ class GlobalView {
      */
     private function theme_settings_tab_menu( $current ) {
         $tabs = array(
-            'homepage'              => 'Genel Site Ayarları',
+            'homepage'              => 'Üst Kısım Ayarları',
             'social'                => 'Sosyal Medya Ayarları',
-            'img_settings'          => 'Logo ve Favicon',
-            "seo_tools"             => "Seo Araçları"
+            'footer'                => 'Footer Ayarları',
+            "googleanalytics"       => "Google Analytics",
+            "webmastersettings"     => "Google Web Master Code"
         );
         echo '<div id="icon-themes" class="icon32"><br></div>';
         echo '<h2 class="nav-tab-wrapper">';
@@ -140,17 +136,21 @@ class GlobalView {
         $tab_page = (isset($_GET["tab"])) ? $_GET["tab"]  : "homepage";
         $this->theme_settings_tab_menu($tab_page);
 
+        //Gelen post değerlerinin kontrolünü yapıp db ye kaydını yapılmasını sağlar.
+        $get_post_val       =   $this->globalcontroller->forms_save_settings();
         switch($tab_page) {
             case("homepage"):
-                general_settings_ui();
+                $this->form_ui->HomePage($get_post_val);
                 break;
             case("social"):
-                social_settings_ui();
+                $this->form_ui->SocialPage($get_post_val);
                 break;
-            case("img_settings"):
+            case("footer"):
                 break;
-            case("seo_tools"):
-                wm_tools_func();
+            case("googleanalytics"):
+                $this->form_ui->GoogleAnalytics($get_post_val);
+                break;
+            case("webmastersettings"):
                 break;
             default:
                 break;
@@ -161,9 +161,10 @@ class GlobalView {
 
     /*
      * Siteye Eklenen Sosyal Ağların butonlarını ekler.
+     * TODO bu kısımın css ayarlarını panelden yapılacak hale getirmek iyi olacaktır diye düşünüyorum.
      */
     public function social_button_settings(){
-        $get_social_buttons     = get_option( SOCIAL_THEME_SETTINGS );
+        $get_social_buttons     = get_option(SOCIAL_THEME_SETTINGS);
         if(!empty($get_social_buttons)):
             echo "<ul class='ul-table social_links'>";
             foreach($get_social_buttons as $id => $link) :
