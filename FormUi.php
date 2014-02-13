@@ -124,7 +124,10 @@ class FormUi {
 
             <fieldset>
                 <label for="google_analytics">Google Analytics Kodu</label>
-                <textarea name="<?php echo self::google_analytics; ?>" id="google_analytics" placeholder="Google Analytics Code"><?php echo stripslashes($google_analytics); ?></textarea>
+                <textarea
+                    name="<?php echo self::google_analytics; ?>"
+                    id="google_analytics"
+                    placeholder="Google Analytics Code"><?php echo stripslashes($google_analytics); ?></textarea>
             </fieldset>
 
             <input type="submit" value="Ayarları Kaydet" />
