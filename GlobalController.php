@@ -177,7 +177,7 @@ class GlobalController implements ViewCount {
      * @param $post_id girilen içeriğin post numarası
      * @return $get_view_count[0] girilen post numarasına ait görüntülenme sayısı.
      */
-    public function get_view_count($post_id) {
+    public function get_view_count( $post_id ) {
         $get_view_count     = get_post_meta($post_id,GlobalModel::$view_increase);
         return $get_view_count[0];
     }

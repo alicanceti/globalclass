@@ -55,7 +55,7 @@ class FormUi {
     }
 
 
-    public function GoogleAnalytics($google_analytics){ ?>
+    public function GoogleAnalytics( $google_analytics ){ ?>
 
         <form id="main_page_settings" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
 
