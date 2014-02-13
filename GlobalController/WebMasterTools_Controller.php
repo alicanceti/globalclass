@@ -23,7 +23,7 @@ class WebMasterTools_Controller {
 
         if( isset( $_POST[self::WMT_NONCE_NAME] ) ) {
             if( wp_verify_nonce( $_POST[self::WMT_NONCE_NAME],self::WMT_NONCE_ACTION ) ) {
-                $get_analytics_code     = $this->security_sql_inj( $_POST[self::ANALYTICS_FORM_NAME] );
+                $get_analytics_code     = $_POST[self::ANALYTICS_FORM_NAME];
                 $this->webmastertools_model->register_analytics_code( $get_analytics_code );
                 return $get_analytics_code;
             }
@@ -38,7 +38,7 @@ class WebMasterTools_Controller {
 
         if( isset( $_POST[self::WMT_NONCE_NAME] ) ) {
             if( wp_verify_nonce( $_POST[self::WMT_NONCE_NAME],self::WMT_NONCE_ACTION ) ) {
-                $get_wm_tools_code     = $this->security_sql_inj( $_POST[self::GOOGLE_WMT_FORM_NAME] );
+                $get_wm_tools_code     = $_POST[self::GOOGLE_WMT_FORM_NAME];
                 $this->webmastertools_model->register_wmtools_code( $get_wm_tools_code );
                 return $get_wm_tools_code;
             }
@@ -55,12 +55,11 @@ class WebMasterTools_Controller {
 
     public function wmt_tools_add_func(){
 
-        echo stripslashes(get_option("google_analytics_code"));
-//        $get_analytics_code     = get_option( self::ANALYTICS_FORM_NAME );
-//        if( !empty( $get_analytics_code ) ) echo stripslashes( $get_analytics_code );
-//
-//        $get_wm_tools_code      = get_option( self::GOOGLE_WMT_FORM_NAME );
-//        if( !empty( $get_wm_tools_code ) ) echo stripslashes( $get_wm_tools_code );
+        $get_analytics_code     = get_option( GOOGLE_ANALYTICS_CODE );
+        if( !empty( $get_analytics_code ) ) echo stripslashes( $get_analytics_code );
+
+        $get_wm_tools_code      = get_option( WEBMASTER_TOOLS_CODE );
+        if( !empty( $get_wm_tools_code ) ) echo stripslashes( $get_wm_tools_code );
     }
 
 }

@@ -24,7 +24,7 @@ class GlobalController implements ViewCount {
                 break;
             case "footer":
                 break;
-            case("googleanalytics"):
+            case("seo_tools"):
                 return $this->google_analytics_save();
                 break;
         }
