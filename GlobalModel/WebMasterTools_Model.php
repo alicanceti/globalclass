@@ -8,6 +8,7 @@
 
 class WebMasterTools_Model {
 
+
     /*
      * Formdan gelen analytics kodu veritabanına kaydeder.
      * @param String $analytics_code

@@ -17,6 +17,7 @@
 define("SOCIAL_THEME_SETTINGS","social_theme_settings");
 define("GOOGLE_ANALYTICS_CODE","google_analytics_code");
 define("HOME_PAGE_SETTINGS","home_page_settings");
+define( "GLOBAL_CLASS_PATH",dirname( __FILE__ ) );
 
 include_once(__DIR__ . "/GlobalView.php");
 $global_model       = new GlobalModel();
@@ -93,16 +94,6 @@ function blogs_views_data(){
 function blogs_view_count(){
     global $post,$global_controller;
     return $global_controller->get_view_count($post->ID);
-}
-
-
-/*
- * Google Analytics Code ve Web Master Araçları Kodlarının Ototmaitk olarak yerleştirilmesi için kullanılır.
- */
-add_action("wp_head","ms_google_analytics_code");
-function ms_google_analytics_code(){
-    $get_analytics_code     = get_option(GOOGLE_ANALYTICS_CODE);
-    if(!empty($get_analytics_code)) echo stripslashes($get_analytics_code);
 }
 
 ?>

@@ -16,6 +16,7 @@ class WebMasterTools_Controller {
 
     function __construct( WebMasterTools_Model $webmastertools_model ) {
         $this->webmastertools_model = $webmastertools_model;
+        add_action("wp_head",array($this,"wmt_tools_add_func"));
     }
 
     public function process_analytics_code(){
@@ -52,4 +53,16 @@ class WebMasterTools_Controller {
         return htmlspecialchars(trim( $post_value ));
     }
 
-} 
+    public function wmt_tools_add_func(){
+
+        echo stripslashes(get_option("google_analytics_code"));
+//        $get_analytics_code     = get_option( self::ANALYTICS_FORM_NAME );
+//        if( !empty( $get_analytics_code ) ) echo stripslashes( $get_analytics_code );
+//
+//        $get_wm_tools_code      = get_option( self::GOOGLE_WMT_FORM_NAME );
+//        if( !empty( $get_wm_tools_code ) ) echo stripslashes( $get_wm_tools_code );
+    }
+
+}
+
+?>
