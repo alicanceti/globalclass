@@ -20,71 +20,6 @@ class FormUi {
     const google_analytics                  = "google_analytics";
     private $auto_google_code;
 
-    public  function HomePage($post_val){
-        /*
-         * Sayfa açılış anında HomePage fonksiyonu hata vericektir.
-         * Bunun sebebi $post_val değişkeninin boş olmasıdır.
-         * Yani henüz database'e hiç bir veri gönderilmemiştir.
-         * Controller dosyasından boş değer döner.
-         * Bizde bunu kontrol edip hata atmasını engelliyoruz.
-         */
-        if(empty($post_val)) {
-            $post_val             = array(
-                self::doctor_name_surname             => "",
-                self::doctor_title                    => "",
-                self::doctor_email                    => "",
-                self::doctor_telephone_number_one     => "",
-                self::doctor_telephone_number_two     => "",
-                self::doctor_telephone_number_three   => "",
-                self::doctor_address                  => ""
-
-            );
-        }
-        ?>
-        <form id="main_page_settings" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
-            <p> Şeklinde bütün değişkenli topla $get_main_area_option   = get_option(HOME_PAGE_SETTINGS);</p>
-            <fieldset>
-                <p>$get_main_area_option["doctor_name_surname"]</p>
-                <label for="<?php echo self::doctor_name_surname; ?>">Doktor Adı ve Soyadı : </label>
-                <input type="text" name="<?php echo self::doctor_name_surname; ?>" id="<?php echo self::doctor_name_surname; ?>" value="<?php echo $post_val[self::doctor_name_surname] ?>" />
-            </fieldset>
-            <fieldset>
-                <p>$get_main_area_option["doctor_title"]</p>
-                <label for="<?php echo self::doctor_title; ?>">Doktor Ünvanı : </label>
-                <input type="text" name="<?php echo self::doctor_title; ?>" id="<?php echo self::doctor_title; ?>" value="<?php echo $post_val[self::doctor_title] ?>" />
-            </fieldset>
-            <fieldset>
-                <p>$get_main_area_option["doctor_email"]</p>
-                <label for="<?php echo self::doctor_email; ?>">Doktor E-mail Adresi : </label>
-                <input type="text" name="<?php echo self::doctor_email; ?>" id="<?php echo self::doctor_email; ?>" value="<?php echo $post_val[self::doctor_email]; ?>" />
-            </fieldset>
-            <fieldset>
-                <p>$get_main_area_option["doctor_telephone_number_one"]</p>
-                <label for="<?php echo self::doctor_telephone_number_one; ?>">Telefon Numarası 1 : </label>
-                <input type="text" name="<?php echo self::doctor_telephone_number_one; ?>" id="<?php echo self::doctor_telephone_number_one; ?>" value="<?php echo $post_val[self::doctor_telephone_number_one]; ?>" />
-            </fieldset>
-            <fieldset>
-                <p>$get_main_area_option["doctor_telephone_number_two"]</p>
-                <label for="<?php echo self::doctor_telephone_number_two; ?>">Telefon Numarası 2 : </label>
-                <input type="text" name="<?php echo self::doctor_telephone_number_two; ?>" id="<?php echo self::doctor_telephone_number_two; ?>" value="<?php echo $post_val[self::doctor_telephone_number_two]; ?>" />
-            </fieldset>
-            <fieldset>
-                <p>$get_main_area_option["doctor_telephone_number_three"]</p>
-                <label for="<?php echo self::doctor_telephone_number_three; ?>">Telefon Numarası 3 : </label>
-                <input type="text" name="<?php echo self::doctor_telephone_number_three; ?>" id="<?php echo self::doctor_telephone_number_three; ?>" value="<?php echo $post_val[self::doctor_telephone_number_three]; ?>" />
-            </fieldset>
-            <fieldset>
-                <p>$get_main_area_option["doctor_address"]</p>
-                <label for="<?php echo self::doctor_address; ?>">Hastane veya muayene adresi</label>
-                <textarea name="<?php echo self::doctor_address; ?>" id="<?php echo self::doctor_address; ?>"><?php echo $post_val[self::doctor_address]; ?></textarea>
-            </fieldset>
-            <fieldset>
-                <input id="submit_button" type="submit" value="Ayarları Kaydet" />
-            </fieldset>
-            <?php wp_nonce_field(self::home_page_nonce_action,self::home_page_nonce_name); ?>
-        </form>
-    <?php
-    }
     public static $social_array = array(
         "facebook"      => "Facebook Sayfa Linki",
         "twitter"       => "Twitter Sayfa Linki",
@@ -95,7 +30,9 @@ class FormUi {
         "pinterest"     => "Pinterest Sayfa Linki"
     );
 
-    public function  SocialPage($social_array){ ?>
+    public function  SocialPage($social_array){
+        print_r( $social_array );
+        ?>
         <p><strong>Sayfada çalıştırmak için social_buttons() fonksiyonunu ekleyin.</strong></p>
         <form id="main_page_settings" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
 
@@ -118,7 +55,7 @@ class FormUi {
     }
 
 
-    public function GoogleAnalytics($google_analytics){ ?>
+    public function GoogleAnalytics( $google_analytics ){ ?>
 
         <form id="main_page_settings" method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
 
