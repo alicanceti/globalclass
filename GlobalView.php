@@ -150,5 +150,12 @@ class GlobalView {
                 break;
         }
     }
+
+
+    /****************** Site Ön Yüzünde Yapılacak Değişiklikler Burada Kodlanacak ******************/
+
+    public function social_button_settings(){
+        social_settings_site();
+    }
 }
 ?>

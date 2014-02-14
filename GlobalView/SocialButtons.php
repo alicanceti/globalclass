@@ -31,3 +31,20 @@ $social_buttons_controller      = new SocialButtons_Controller( $social_buttons_
         <input type="submit" value="Ayarları Kaydet" />
     </form>
 <?php } ?>
+<?php
+
+/*
+ * Sosyal Ağ butonlarının çıkması için kullanılır.
+ */
+function social_settings_site(){
+    echo "<ul class='ul-table social_links'>";
+    foreach( SocialButtons_Model::$social_array as $network => $url ) :
+        $url    = get_option( $network );
+        if(!empty( $url )) :
+            echo "<li><a id='" . $network . "' href='" . $url . "'></a></li>";
+        endif;
+    endforeach;
+    echo "</ul>";
+}
+
+?>

@@ -71,7 +71,7 @@ function nav_menu_ms($menu_array){
  */
 function social_buttons(){
     global $global_view;
-//    $global_view->social_button_settings();
+    $global_view->social_button_settings();
 }
 
 /*
