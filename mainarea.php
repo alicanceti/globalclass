@@ -61,7 +61,6 @@ $global_view->settings_defaults($size_array_args,$widget_array_args,$menu_array_
 /*
  * Sayfaya menu desteği eklemez,
  * Menu desteği eklenmiş sayfaya menuler eklenmesinde yardımcı fonksiyon olarak kullanılır.
- * Menu alanları eklemek için $menu_array_args değişkenini incele.
  */
 function nav_menu_ms($menu_array){
     global $global_view;
