@@ -21,7 +21,7 @@ class SocialButtons_Model {
 
     function __construct() {
 
-        $social_arrays      = get_option(SOCIAL_THEME_SETTINGS);
+        $social_arrays      = get_option( SOCIAL_THEME_SETTINGS );
         $get_settings       = get_option( SOCIAL_SETTINGS_BT );
         if( empty( $get_settings ) || $get_settings != $this->sb_version_number ){
 

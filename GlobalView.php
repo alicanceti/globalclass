@@ -6,6 +6,7 @@ include_once(__DIR__ . "/FormUi.php");
 include_once(__DIR__ . "/GlobalView/GeneralSettings.php");
 include_once(__DIR__ . "/GlobalView/SocialButtons.php");
 include_once(__DIR__ . "/GlobalView/WebMasterTools.php");
+include_once(__DIR__ . "/GlobalView/ViewCount.php");
 
 
 class GlobalView {
@@ -118,7 +119,7 @@ class GlobalView {
     }
 
     /*
-     * Ayarlar sayfasında tabmenulerin çıkmasını sağlar.
+     * Ayarlar sayfasında tab menulerin çıkmasını sağlar.
      */
     private function theme_settings_tab_menu( $current ) {
         $tabs = array(
@@ -155,39 +156,6 @@ class GlobalView {
             default:
                 break;
         }
-    }
-
-    //----------------- Sitenin ziyaretçi arayüzünde kullanılması gereken fonksiyonlar burada belirtilmiştir ------------------------------------
-
-    /*
-     * Siteye Eklenen Sosyal Ağların butonlarını ekler.
-     */
-    public function social_button_settings(){
-        $get_social_buttons     = get_option( SOCIAL_THEME_SETTINGS );
-        if(!empty($get_social_buttons)):
-            echo "<ul class='ul-table social_links'>";
-            foreach($get_social_buttons as $id => $link) :
-                if($link !=  null) :
-                    echo "<li><a id='" . $id . "' href='" . $link . "'></a></li>";
-                endif;
-            endforeach;
-            echo "</ul>";
-        endif;
-    }
-
-    /*
-     *
-     */
-    public function blog_views_count_and_data($id="",$class="content_attribute margin_bottom"){
-        global $post;
-        ?>
-
-        <ul class="blog_attr <?php echo $class; ?>" id="<?php echo $id; ?>">
-            <li><span class="glyphicon glyphicon-eye-open"></span><?php echo $this->globalcontroller->get_view_count($post->ID) . " Defa Okundu"; ?></li>
-            <li><span class="glyphicon glyphicon-dashboard"></span><?php echo $this->globalcontroller->get_date_from_pass_time($post->ID); ?></li>
-        </ul>
-
-    <?php
     }
 }
 ?>

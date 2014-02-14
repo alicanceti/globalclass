@@ -14,8 +14,6 @@
  * DB kayıt işlemlerinde kullanılacak isimleri global hale getiriyoruz.
  * Bu şekilde sürekli hangi ismin ne şekilde kullanıdğı aramasından kurtulmuş oluyoruz.
  */
-define("SOCIAL_THEME_SETTINGS","social_theme_settings");
-define("GOOGLE_ANALYTICS_CODE","google_analytics_code");
 define("HOME_PAGE_SETTINGS","home_page_settings");
 define( "GLOBAL_CLASS_PATH",dirname( __FILE__ ) );
 

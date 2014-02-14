@@ -1,8 +1,10 @@
 <?php
 
-if( !defined( "SOCIAL_SETTINGS_GC" ) ){
+if( !defined( "SOCIAL_SETTINGS_GC" ) )
     define( "SOCIAL_SETTINGS_BT","social_button_settings" );
-}
+
+if( !defined( "SOCIAL_THEME_SETTINGS" ) )
+    define("SOCIAL_THEME_SETTINGS","social_theme_settings");
 
 include_once ( GLOBAL_CLASS_PATH . "/GlobalController/SocialButtons_Controller.php" );
 include_once ( GLOBAL_CLASS_PATH . "/GlobalModel/SocialButtons_Model.php" );
