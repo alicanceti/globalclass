@@ -22,6 +22,7 @@ $social_buttons_controller      = new SocialButtons_Controller( $social_buttons_
 
         <?php foreach( $social_buttons_controller->intent_social_settings() as $sb_key => $sb_val ) { ?>
             <fieldset>
+                <p><?php echo "\"" . $sb_key . "\""; ?></p>
                 <label for="<?php echo $sb_key; ?>"><?php echo $sb_set_defaults[$sb_key] ?></label>
                 <input type="text" name="<?php echo $sb_key; ?>" id="<?php echo $sb_key; ?>" value="<?php echo stripslashes($sb_val); ?>" class="gs_input_class" />
             </fieldset>

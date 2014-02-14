@@ -91,4 +91,12 @@ function blogs_view_count(){
     return $global_controller->get_view_count($post->ID);
 }
 
+/*
+ * String değerinde verilen parametreyi veritabanında arar ve
+ * Sonucu geri dönderir.
+ */
+function set_parameters( $parameter ){
+    return get_option( $parameter );
+}
+
 ?>
