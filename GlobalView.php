@@ -1,7 +1,4 @@
 <?php
-include_once(__DIR__ . "/GlobalModel.php");
-include_once(__DIR__ . "/GlobalController.php");
-
 include_once(__DIR__ . "/GlobalView/GeneralSettings.php");
 include_once(__DIR__ . "/GlobalView/SocialButtons.php");
 include_once(__DIR__ . "/GlobalView/WebMasterTools.php");
@@ -9,11 +6,9 @@ include_once(__DIR__ . "/GlobalView/ViewCount.php");
 
 
 class GlobalView {
-    private $globalcontroller,$form_ui,$size_array,$widgets_array,$menu_array;
+    private $size_array,$widgets_array,$menu_array;
 
-    function __construct(GlobalController $controller)
-    {
-        $this->globalcontroller = $controller;
+    function __construct() {
         add_action("admin_menu",array(&$this,"global_theme_settings"));
         add_action("after_setup_theme",array(&$this,"advanced_settings"));
         add_action("init",array(&$this,"add_global_style"));

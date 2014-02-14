@@ -19,6 +19,7 @@ $general_settings_cont      = new GeneralSettings_Controller( $general_settings_
 
         <?php foreach( $general_settings_cont->intent_general_settings() as $gs_key => $gs_val ) { ?>
             <fieldset>
+                <p><?php echo "\"" . $gs_key . "\""; ?></p>
                 <label for="<?php echo $gs_key; ?>"><?php echo $gs_set_defaults[$gs_key] ?></label>
                 <?php if( $gs_key == "customer_address" ): ?>
                     <textarea name="<?php echo $gs_key; ?>" id="<?php echo $gs_key; ?>" class="gs_textarea_class"><?php echo stripslashes($gs_val); ?></textarea>
