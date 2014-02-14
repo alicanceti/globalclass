@@ -1,5 +1,4 @@
 <?php
-include_once (__DIR__ . "/ViewCount.php");
 class GlobalController {
 
     private $globalmodel;
