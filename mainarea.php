@@ -18,8 +18,6 @@ define("HOME_PAGE_SETTINGS","home_page_settings");
 define( "GLOBAL_CLASS_PATH",dirname( __FILE__ ) );
 
 include_once(__DIR__ . "/GlobalView.php");
-$global_model       = new GlobalModel();
-$global_controller  = new GlobalController($global_model);
 
 /*
  * Öne çıkarılmış görsel adı ve boyutları buradan belirlenecek.
@@ -54,7 +52,7 @@ $menu_array_args        = array(
 /*
  * Admin panele koyulacak tüm formlar buraya koyulacak.
  */
-$global_view        = new GlobalView($global_controller);
+$global_view        = new GlobalView();
 $global_view->settings_defaults($size_array_args,$widget_array_args,$menu_array_args);
 
 /*
@@ -73,7 +71,7 @@ function nav_menu_ms($menu_array){
  */
 function social_buttons(){
     global $global_view;
-    $global_view->social_button_settings();
+//    $global_view->social_button_settings();
 }
 
 /*
